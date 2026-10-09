@@ -287,3 +287,35 @@ footer#plan {
     background-color: var(--color-sand);
   }
 }
+
+/* Media Queries for Mobile */
+@media (max-width: 640px) {
+  header nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .bg-hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .tours-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-plan-container {
+    gap: 1rem;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .footer-contact-container div {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
