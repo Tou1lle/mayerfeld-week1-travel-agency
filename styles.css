@@ -11,7 +11,9 @@
   --header-height-ng: -100px;
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -38,18 +40,46 @@ ul {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-}
-
-.bg-hero {
   display: flex;
   align-items: center;
+  color: white;
 }
 
-.bg-hero > *{
+.bg-hero > section {
   flex: 1;
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bg-hero h1 {
+  font-size: 5rem;
+  max-width: 700px;
+}
+
+.hero-btn-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-btn-container > a {
+  display: inline-block;
+  border-radius: 10px;
+  font-weight: 600;
+  padding:  1rem 1.5rem;
+}
+
+.plan-cta {
+  background-color: var(--color-sunset);
+  color: var(--color-ink);
+}
+
+.tours-cta {
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
 }
 
 /* Header Section */
