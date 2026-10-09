@@ -145,7 +145,6 @@ header a:hover {
 /* Main Section */
 main {
   background-color: var(--color-sand);
-  padding: 25px 0 0 0;
 }
 
 main > div:last-child {
@@ -158,9 +157,11 @@ main section {
   padding: var(--edge-padding);
 }
 
-.tours h2 {
+.tours h2,
+.testimonials h2 {
   font-size: 2rem;
   color: var(--color-ocean);
+  padding-top: 40px;
 }
 
 .tours-grid {
@@ -205,6 +206,28 @@ main section {
 .tour-price {
   color: var(--color-ocean);
   font-weight: 600;
+}
+
+.testimonials {
+  padding-bottom: 40px;
+}
+
+.testimonials-grid {
+  padding-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.testimonials-grid article {
+  background-color: var(--color-sand);
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.testimonials-grid article p:first-child {
+  padding-bottom: 20px;
 }
 
 /* Animations */
