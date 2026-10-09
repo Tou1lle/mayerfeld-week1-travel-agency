@@ -10,6 +10,10 @@
   --edge-padding: 15px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 *,
 *::after,
 *::before {
