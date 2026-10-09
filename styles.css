@@ -182,7 +182,7 @@ main section {
 
 .tour-card:hover {
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(36, 26, 20, 0.08);;
+  box-shadow: 0 8px 24px rgba(36, 26, 20, 0.08);
   transform: translateY(-4px);
 }
 
@@ -228,6 +228,57 @@ main section {
 
 .testimonials-grid article p:first-child {
   padding-bottom: 20px;
+}
+
+/* Footer Section */
+footer#plan {
+  background-color: var(--color-sunset);
+}
+
+.footer-plan-container {
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: var(--edge-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plan-cta-btn {
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-ink);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  color: var(--color-sand);
+  transition: all 0.4s ease-in-out;
+}
+
+.plan-cta-btn:hover {
+  background-color: var(--color-sand);
+  color: var(--color-ink);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(36, 26, 20, 0.08);
+}
+
+.footer-plan-container h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.footer-contact-container {
+  padding: var(--edge-padding);
+  background-color: var(--color-ink);
+}
+
+.footer-contact-container > div {
+  margin: 0 auto;
+  max-width: var(--max-width);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-sand);
 }
 
 /* Animations */
