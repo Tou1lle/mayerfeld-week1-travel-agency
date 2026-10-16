@@ -20,9 +20,22 @@ header {
   animation-range: 0px 400px;
 }
 
+header > nav > a,
+header > nav > ul a {
+  animation: logo-color linear forwards;
+  animation-timeline: scroll();
+  animation-range: 0px 400px;
+}
+
+@keyframes logo-color {
+  to {
+    color: var(--color-sand);
+  }
+}
+
 @keyframes header-background {
   to {
-    background-color: var(--color-sand);
+    background-color: var(--color-ocean);
   }
 }
 

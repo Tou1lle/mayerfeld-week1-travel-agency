@@ -4,7 +4,7 @@ export default function Header() {
       <nav className="mx-auto flex max-w-page flex-col items-center justify-between gap-4 px-[15px] py-6 min-[641px]:flex-row">
         <a
           href="#"
-          className="text-2xl font-bold text-ocean transition-colors duration-100 hover:text-white"
+          className="text-2xl font-bold text-ocean transition-colors duration-100 hover:text-white hover:underline"
         >
           Wayfarer
         </a>
@@ -13,7 +13,7 @@ export default function Header() {
           <li>
             <a
               href="#tours"
-              className="transition-colors duration-100 hover:text-white"
+              className="transition-colors duration-100 hover:text-white hover:underline"
             >
               Tours
             </a>
@@ -21,7 +21,7 @@ export default function Header() {
           <li>
             <a
               href="#testimonials"
-              className="transition-colors duration-100 hover:text-white"
+              className="transition-colors duration-100 hover:text-white hover:underline"
             >
               Testimonials
             </a>
@@ -29,7 +29,7 @@ export default function Header() {
           <li>
             <a
               href="#plan"
-              className="transition-colors duration-100 hover:text-white"
+              className="transition-colors duration-100 hover:text-white hover:underline"
             >
               Plan your trip
             </a>
