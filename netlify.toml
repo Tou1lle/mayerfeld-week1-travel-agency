@@ -5,7 +5,7 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "https://mayerfeld-project-api.onrender.com/"
+  to = "https://mayerfeld-project-api.onrender.com/:splat"
   status = 200
   force = true
 
