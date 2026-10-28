@@ -1,4 +1,3 @@
-// Same-origin /api requests: Vite proxies locally; Vercel rewrites in production.
 export async function api(path, options = {}) {
   const response = await fetch(`/api${path}`, {
     credentials: "same-origin",
@@ -8,8 +7,10 @@ export async function api(path, options = {}) {
       ...options.headers,
     },
   });
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok)
-    throw new Error(data.error || `Request failed (${response.status})`);
-  return data;
+
+  if (!response.ok) {
+    throw new Error(`Request failed (${response.status})`);
+  }
+
+  return response.json();
 }
