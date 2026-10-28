@@ -1,18 +1,19 @@
-export default function TourCard({ image, alt, title, duration, price }) {
+export default function TourCard({ tour }) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-[15px] bg-white transition-all duration-100 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(36,26,20,0.08)]">
+    <article className="flex flex-col overflow-hidden rounded-[15px] bg-white transition-all duration-150 hover:-translate-y-1 hover:shadow-lg">
       <img
-        src={image}
-        alt={alt}
-        className="w-full object-cover"
+        src={`/assets/${tour.image_file}`}
+        alt={tour.image_alt}
+        className="h-64 w-full object-cover"
+        loading="lazy"
       />
-
       <div className="flex flex-col gap-4 p-6">
-        <h3>{title}</h3>
-
-        <div className="flex justify-between">
-          <p>{duration}</p>
-          <p className="font-semibold text-ocean">{price}</p>
+        <h3 className="font-semibold">{tour.title}</h3>
+        <div className="flex justify-between gap-2">
+          <span>{tour.duration_days} days</span>
+          <span className="font-semibold text-ocean">
+            from ${Number(tour.price).toLocaleString("en-US")}
+          </span>
         </div>
       </div>
     </article>
