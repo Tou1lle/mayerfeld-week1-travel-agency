@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { api } from "../lib/api";
 import TourCard from "./TourCard";
 
-export default function Tours() {
+export default function Tours({ user, onOpenAuth }) {
   const [tours, setTours] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -19,6 +19,25 @@ export default function Tours() {
       });
     return () => controller.abort();
   }, []);
+
+  const [checkoutId, setCheckoutId] = useState(null);
+  async function checkout(tourId) {
+    if (!user) return onOpenAuth();
+    setError("");
+    setCheckoutId(tourId);
+    try {
+      const result = await api("/orders/checkout", {
+        method: "POST",
+        body: JSON.stringify({ tourId }),
+      });
+      if (!result.url?.startsWith("https://checkout.stripe.com/"))
+        throw new Error("Invalid checkout URL");
+      window.location.assign(result.url);
+    } catch (e) {
+      setError(e.message);
+      setCheckoutId(null);
+    }
+  }
 
   return (
     <section
@@ -41,7 +60,7 @@ export default function Tours() {
       )}
       <div className="grid grid-cols-1 gap-6 py-[25px] sm:grid-cols-2 lg:grid-cols-3">
         {tours.map((t) => (
-          <TourCard key={t.id} tour={t} />
+          <TourCard key={t.id} tour={t} onCheckout={() => checkout(t.id)} checkoutLoading={checkoutId === t.id} />
         ))}
       </div>
     </section>
