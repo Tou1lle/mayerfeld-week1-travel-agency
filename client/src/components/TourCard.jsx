@@ -1,4 +1,4 @@
-export default function TourCard({ tour }) {
+export default function TourCard({ tour, onCheckout, checkoutLoading }) {
   return (
     <article className="flex flex-col overflow-hidden rounded-[15px] bg-white transition-all duration-150 hover:-translate-y-1 hover:shadow-lg">
       <img
@@ -15,6 +15,10 @@ export default function TourCard({ tour }) {
             from ${Number(tour.price).toLocaleString("en-US")}
           </span>
         </div>
+        <button type="button" onClick={onCheckout} disabled={checkoutLoading}
+          className="cursor-pointer rounded-lg bg-ocean px-4 py-3 font-semibold text-white hover:bg-ink disabled:opacity-60">
+          {checkoutLoading ? "Starting checkout…" : "Book now"}
+        </button>
       </div>
     </article>
   );
