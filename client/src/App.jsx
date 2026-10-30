@@ -6,12 +6,13 @@ import Tours from "./components/Tours";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import AuthModal from "./components/AuthModal";
+import CheckoutSuccess from "./components/CheckoutSuccess";
 
 export default function App() {
   const [user, setUser] = useState(null);
   const [authOpen, setAuthOpen] = useState(false);
   const [error, setError] = useState("");
-  
+
   useEffect(() => {
     let active = true;
     api("/auth/me")
@@ -36,6 +37,9 @@ export default function App() {
     }
   }
 
+  if (window.location.pathname === "/checkout/success")
+    return <CheckoutSuccess />;
+
   return (
     <>
       <Header
@@ -53,7 +57,7 @@ export default function App() {
       )}
       <Hero />
       <main className="bg-sand">
-        <Tours />
+        <Tours user={user} onOpenAuth={() => setAuthOpen(true)} />
         <Testimonials />
       </main>
       <Footer />
