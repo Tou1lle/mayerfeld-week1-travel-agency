@@ -8,6 +8,8 @@ import passport from "./config/passport.js";
 import { pool } from "./db/pool.js";
 import authRouter from "./routes/auth.js";
 import toursRouter from "./routes/tours.js";
+import ordersRouter from "./routes/orders.js";
+import stripeWebhookRouter from "./routes/stripeWebhook.js";
 
 for (const key of ["CLIENT_ORIGIN", "SESSION_SECRET", "DATABASE_URL"])
   if (!process.env[key]) throw new Error(`${key} is required`);
@@ -20,6 +22,12 @@ if (production) app.set("trust proxy", 1);
 app.use(helmet());
 app.use(cors({ origin: process.env.CLIENT_ORIGIN, credentials: true }));
 
+// Stripe signature verification requires the original request bytes.
+app.use(
+  "/api/stripe/webhook",
+  express.raw({ type: "application/json", limit: "1mb" }),
+  stripeWebhookRouter,
+);
 app.use(express.json({ limit: "20kb" }));
 // Only the configured frontend may submit state-changing browser requests.
 app.use((req, res, next) => {
@@ -54,6 +62,7 @@ app.use(passport.session());
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
 app.use("/api/auth", authRouter);
 app.use("/api/tours", toursRouter);
+app.use("/api/orders", ordersRouter);
 
 app.use((err, _req, res, _next) => {
   console.error(err);
